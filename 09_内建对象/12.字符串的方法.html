@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            字符串：
+                -字符串很多方法跟数组是非常相似的
+                -属性和方法：
+                    length  获取字符串的长度
+                    字符串[索引]  获取指定位置的字符
+                    str.at()  
+                        根据索引获取字符  可以负索引
+                    str.charAt()  
+                        根据索引获取字符
+                    str.concat()  
+                        用来连接两个或多个字符串
+                    str.includes("",)  
+                        检查字符串中是否包含某个内容，有为true ，没有返回false
+                        第二个参数表示查询的起始位置
+                    str.indexOf()
+                    str.lastIndexOf()
+                        查询字符串中是否包含某个内容
+                    str.startsWith()
+                    str.endsWith()
+                        检查字符串是否由指定内容开头结尾
+                    str.padStart(7,0)
+                    str.padEnd( , )
+                        通过添加指定的内容使字符串保持指定的长度
+                    str.replace("","")
+                        替换第一个参数
+                    str.replaceAll("","")
+                        替换掉全部与第一个参数相同的字符串
+                    str.slice(起始位置，结束位置)
+                        对字符串进行切片，截取字符串
+                        从0开始，包含起始位置，不包含结束位置
+                    str.substring(15,12)
+                        截取字符串，会自动交换参数位置
+                    str.split("")
+                        根据指定内容将一个字符串拆分为一个数组
+                    str.toLowerCase()
+                        将字符串全部转换为小写
+                    str.toUpperCase()
+                        将字符串转换为大写
+                    str.trim()
+                        去除字符串的前后空格
+                    str.trimStart()
+                        去除字符串的前空格
+                    str.trimEnd()
+                        去除字符串的后空格
+        */
+        let str = "hello"
+
+        // console.log(str[0])
+
+        // for(let vaue of str){
+        //     console.log(vaue);
+        // }    //  遍历
+
+        // console.log(str.at(1))
+        // console.log(str.charAt(1))
+
+        str = "hello hello how are you"
+
+        // console.log(str.includes("tom"))   // false
+
+        // console.log(str.endsWith("u"))  //  true
+
+        str = "100"
+        str.padStart(7)
+        // console.log(str.padStart(7,0))   //0000100
+
+        str = "hello hello how are you"
+        let result = str.replace("hello","abc")
+        result = str.replaceAll("hello","abc")
+
+        result = str.slice(12,15)
+        result = str.substring(15,12)
+
+        // console.log(result)
+
+        str = "abc@bcd@efg@jqk"
+        // console.log(str.split("@"))
+
+        str = "abcdABCD"
+        // console.log(str.toLowerCase());  //abcdabcd
+        // console.log(str.toUpperCase());  //ABCDABCD
+
+        str = "   a  b  c   "
+        console.log(str)
+        console.log(str.trim())   
+        console.log(str.trimStart())
+        console.log(str.trimEnd())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

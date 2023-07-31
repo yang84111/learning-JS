@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        ul {
+            list-style: none;
+        }
+        #main {
+            width: 590px;
+            height: 470px;
+            margin: auto;
+            position: relative;
+        }
+        #img-list li {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        #img-list .current {
+            opacity: 1;
+            z-index: 1;
+        }
+        #prev-next a {
+            height: 60px;
+            text-decoration: none;
+            position: absolute;
+            font-size: 60px;
+            color: white;
+            top: 0;
+            opacity: .5;
+            bottom: 0;
+            margin: auto;
+            z-index: 2;
+        }
+        #next {
+            right: 0px;
+        }
+        #prev-next a:hover {
+            opacity: 1;
+        }
+        #dot {
+            position: absolute;
+            display: flex;
+            z-index: 3;
+            right: 20px;
+            bottom: 20px;
+        }
+        #dot a {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 0 5px;
+            opacity: .5;
+        }
+        #dot a:hover,
+        #dot .active {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const imgArr = [...document.querySelectorAll("#img-list li")]
+            const dots = [...document.querySelectorAll("#dot a")]
+            const prev = document.getElementById("prev")
+            const next = document.getElementById("next")
+
+            const toggleChange = (function () {
+                let timer = null
+                return () => {
+                    if (timer == null) {
+                        timer = setTimeout(function auto() {
+                            changeImg("next")
+                            timer = setTimeout(auto, 3000)
+                        }, 3000)
+                    } else {
+                        clearTimeout(timer)
+                        timer = null
+                    }
+                }
+            })()
+            toggleChange()
+
+            document.addEventListener("click", (event => {
+                let index = dots.indexOf(event.target)
+                if (index !== -1) {
+                    changeImg(index)
+                }
+            }))
+
+            const main = document.getElementById("main")
+            main.onmouseenter = function () {
+                toggleChange()
+            }
+            main.onmouseleave = function () {
+                toggleChange()
+            }
+
+            prev.onclick = function () {
+                changeImg("prev")
+            }
+            next.onclick = function () {
+                changeImg("next")
+            }
+
+            const changeImg = function (dir) {
+                let next
+                const current = document.getElementsByClassName("current")[0]
+                if (dir == "next") {
+                    next = current.nextElementSibling || imgArr[0]
+                } else if (dir == "prev") {
+                    next = current.previousElementSibling || imgArr[imgArr.length - 1]
+                } else {
+                    next = imgArr[dir]
+                }
+                current.classList.remove("current")
+                next.classList.add("current")
+
+                const index = imgArr.indexOf(next)
+                const currentActive = document.getElementsByClassName("active")[0]
+                currentActive.classList.remove("active")
+                dots[index].classList.add("active")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <ul id="img-list">
+            <li class="current">
+                <a href="#">
+                    <img src="../10_DOM/images/q1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../10_DOM/images/q2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../10_DOM/images/q3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../10_DOM/images/q4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../10_DOM/images/q5.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+
+        <div id="prev-next">
+            <a href="javascript:;" id="prev"><</a>
+            <a href="javascript:;" id="next">></a>
+        </div>
+
+        <div id="dot">
+            <a href="javascript:;" class="active"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+
+</html>

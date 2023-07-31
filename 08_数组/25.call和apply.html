@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            根据函数调用方法的不同，this的值也不同：
+                1.以函数形式调用，this就是window
+                2.以方法形式调用，this就是调用方法的对象
+                3.构造函数中，this是新建立的对象
+                4.箭头函数没有自己的this，有外层作用域决定
+                5.通过call和apply调用的函数第一个参数就是函数的this
+                6.通过bind返回的函数，this由bind的第一个参数决定
+        */
+        function fn() {
+            console.log(this);
+        }
+
+        const obj = { name: "孙悟空", fn }
+        /* 
+            函数的调用除了通过 函数() 这种形式外，还可以通过其他方式来调用函数
+                比如，通过调用函数的call()方法和apply()方法来调用函数
+                函数.call()
+                函数.apply()
+
+                -call和apply除了调用函数外，还可以指定函数中的this
+                -call和apply的第一个参数将会成为函数的this
+
+                -通过call方法调用函数，函数的实参直接在第一个参数后一个一个的列出来
+                -通过apply方法调用函数，函数的实参需要通过一个数组传递
+        */
+        // fn.call(fn)
+        // fn.call(obj)
+        // fn.apply()
+
+        function sum(a, b) {
+            console.log("a=", a, "b=", b,this);
+        }
+        sum.call(obj,1,"hello")
+        sum.apply(obj,[1,"hello"])
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

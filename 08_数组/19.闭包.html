@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            函数的作用域在函数创建时就已经确定了（词法作用域）
+                和调用的位置无关
+            闭包利用的就是词法作用域
+        */
+        function fn() {
+            let num = 0
+            return () => {
+                num++
+                console.log(num);
+            }
+        }
+        let result = fn()
+        result()
+        result()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

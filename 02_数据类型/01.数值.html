@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 数值（number）：
+                -在JS中所有的整数和浮点数都是Number类型
+                -JS中的数值不是无限大的，超过一定范围后会显示近似值
+                -Infinity 是一个特殊数值 表示无穷
+                -NaN(not a number)特殊的数值，表示非法的数值 */
+        let a = 10;
+        a = 0.000000000000000001
+        a = 0.1 + 0.2
+        a = 1 - "a"
+
+        /* 大整数（BigInt）：
+            -大整数用来表示一些比较大的整数
+            -大整数使用n结尾，表示的数值范围是无限大的 */
+        a = 99999999999999999999999999999999999999999999999n
+        console.log(a)
+
+        /* 其他进制的数字：
+                二进制    0b
+                八进制    0o
+                十六进制  0x*/
+        a = 0b1010
+        console.log(a)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

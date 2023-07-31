@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            递归:
+                -调用自身的函数称为递归函数
+                -递归的作用和循环是基本一致的
+
+            编写递归有两个要件：
+                1.基线条件 —— 递归的终止条件
+                2.递归条件 —— 如何对问题进行拆分
+
+            性能差，尽量使用循环
+        */
+
+        // 创建一个函数可以用来求任意数的阶乘
+
+        // function jiecheng(num) {
+        //     let result = 1
+
+        //     for (let i = 2; i <= num; i++) {
+        //         result *= i
+        //     }
+        //     return result
+        // }
+        
+        // let result = jiecheng(3)
+
+        // console.log(result);
+
+
+        function jiecheng2(num){
+            //基线条件
+            if(num === 1){
+                return 1
+            }
+            //递归条件
+            return jiecheng2(num-1) * num
+        }
+
+        result = jiecheng2(10)
+        
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

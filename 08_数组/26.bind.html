@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            bind()是函数的方法，用来创建一个新的函数
+                -bind可以为新函数绑定this
+                -bind可以为新函数绑定参数
+
+            箭头函数的this由外层作用域决定，也无法修改
+            箭头函数中没有arguments
+        */
+        function fn(a,b,c) {
+            console.log("hhh", this)
+            console.log(a,b,c)
+        }
+
+        const obj = { name: "孙悟空" }
+
+        const newFn = fn.bind(obj,10)
+
+        // newFn(20,30)
+
+
+        const arrowFn = ()=>{
+            console.log(this)
+        }
+
+        // arrowFn.call(obj)  //window
+
+        const newArrowFn = arrowFn.bind(obj)
+
+        // newArrowFn()    //window   无法改变
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

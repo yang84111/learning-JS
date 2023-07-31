@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <ul>
+        <li>孙悟空</li>
+        <li>猪八戒</li>
+        <li>沙和尚</li>
+        <li>唐僧</li>
+    </ul>
+    <script>
+        /*  -通过jQuery核心函数获取到的对象就是jQuery对象 
+            -jQuery对象是jQuery中定义的对象
+            -jQuery对象本质上是一个DOM对象的数组（类数组）
+                可以通过索引获取jQuery对象中的DOM对象
+            -修改jQuery对象时，会修改jQuery对象里面的全部内容
+                称为隐式迭代
+            -通常情况下，jQuery对象的返回值依然是一个jQuery对象,
+                则可以连续调用方法，称为jQuery对象的链式调用
+
+        */
+
+        $("#btn").click(function () {
+            var $li = $("li")
+            // alert($li[0].textContent)
+
+            // $li.text("哈哈哈")
+            // $li[0].textContent = "hahaha"
+
+            var text = $li.text()    //读取文本时，返回标签中的全部内容
+            var id = $li.attr("id")  //读取属性时，返回第一个标签的属性
+            // alert(text)  
+            // alert(id)
+
+            var result = $li.text("新内容").css("color","red")
+            alert(result);
+        })
+
+    </script>
+</body>
+
+</html>

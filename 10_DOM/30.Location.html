@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <script>
+        const btn = document.getElementById("btn")
+        btn.addEventListener("click",()=>{
+            /* 
+                浏览器表示的是地址栏信息
+                    可以直接将location的值修改为新的地址使网页发生跳转
+                    location.href  获取当前地址
+                    location.assign()  调转到一个新的地址
+                    location.replace()  使用新网址替换当前网页，无法回退
+                    location.reload()  刷新页面
+                        可以传递参数true强制清除缓存
+            */
+            // console.log(location.href)
+
+            // location = "http://www.baidu.com"
+
+            // location.assign("http://www.baidu.com")
+
+            // location.replace("http://www.baidu.com")
+
+            location.reload(true)
+        })
+    </script>
+</body>
+</html>

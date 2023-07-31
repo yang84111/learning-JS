@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            量词
+                {m}  正好m个
+                {m,}  至少m个
+                {m,n}  m到n个
+                +  一个以上，相当于{1,}
+                *  任意数量
+                ?  零到一次  {0,1}
+        */
+
+        let re = /aaa/
+        let result = re.test("aa1a")  //false
+
+        re = /a{4}/
+        result = re.test("aaaa")  //true
+
+        re = /^(ab){3}$/   
+        result = re.test("aaabbb")  //false
+        result = re.test("ababab")  //true
+
+        re = /^[a-z]{3}$/   //任意三个字母就为true
+        result = re.test("abu")
+
+        re = /^[a-z]{1,}$/   //  至少一个字母
+        re = /^[a-z]{1,4}$/  //  1到4个字母就为true
+        result = re.test("abc")
+
+        re = /^ba+$/  
+        result = re.test("b")   //false
+
+        re = /^ba*$/
+        result = re.test("b")  //true
+
+        re = /^ba?$/
+
+        console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

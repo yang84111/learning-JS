@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>    
+        /*  &&  逻辑与  可以同时对两个值进行运算
+                如果第一个值为false  则后面的值不会计算
+                对于非布尔值进行与运算时，会先转换为布尔值在计算，然后返回原值
+                如果第一个值为false则直接返回第一个值，第一个值为true则返回第二个值
+
+        
+            ||  逻辑或
+                当||左右有true就返回true  否则返回false
+                如果第一个值为true则直接返回，后面就不会计算了
+                对于非布尔值也先转换为布尔值在运算
+                如果第一个值为true则直接返回第一个值，第一个值为false则返回第二个值
+        */  
+
+       result = 1 && 2     //返回2
+       result = 1 && 0     //返回0
+       result = 0 && NaN   //返回0
+       console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

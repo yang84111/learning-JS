@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var a
+        /* 
+            变量的提升：
+                -使用var声明的变量他会在所有的代码执行前被声明
+                 所以可以在变量声明前就访问变量
+            函数的提升：
+                -使用函数声明创建的函数也会在其他代码执行前被创建
+                 所以可以在函数声明前调用函数
+            let声明的变量也会提升，但在赋值前解释器禁止访问该变量
+        */
+       
+        // console.log(b);
+
+        let b = 20
+        console.log(b);
+
+        // fn()
+
+        function fn(){
+            alert("123")
+        }
+
+        // console.log(a);
+
+        var a = 10   //undefined
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

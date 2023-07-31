@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .outer {
+            width: 590px;
+            height: 470px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .img-list li {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        li.current {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        #prev-next a {
+            font-size: 60px;
+            height: 60px;
+            color: red;
+            font-weight: bold;
+            text-decoration: none;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            color: white;
+            opacity: .5;
+        }
+
+        #next {
+            right: 0;
+        }
+
+        #prev-next a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <ul class="img-list">
+            <li class="current">
+                <a href="#">
+                    <img src="./images/q1.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/q2.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/q3.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/q4.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/q5.jpg">
+                </a>
+            </li>
+        </ul>
+        <div id="prev-next">
+            <a href="javascript:;" id="prev">
+                < </a>
+                    <a href="javascript:;" id="next"> > </a>
+        </div>
+    </div>
+
+    <script>
+        const toggleChange = (function () {
+            let timer = null
+            return () => {
+                if (timer == null) {
+                    timer = setTimeout(function auto() {
+                        changeImg("next")
+                        timer = setTimeout(auto, 3000)
+                    }, 3000)
+                } else {
+                    clearTimeout(timer)
+                    timer = null
+                }
+            }
+        })()
+
+        toggleChange()
+
+        const outer = document.getElementsByClassName("outer")[0]
+
+        outer.onmouseenter = function () {
+            toggleChange()
+        }
+        outer.onmouseleave = function () {
+            toggleChange()
+        }
+
+        const prev = document.getElementById("prev")
+        const next = document.getElementById("next")
+
+        next.onclick = function () {
+            changeImg("next")
+        }
+
+        prev.onclick = function () {
+            changeImg("prev")
+        }
+        /* 
+            参数：
+                dir 切换图片方向
+                    next
+                    prev
+        */
+        function changeImg(dir) {
+            let next
+            const current = document.getElementsByClassName("current")[0]
+            if (dir === "next") {
+                next = current.nextElementSibling ||
+                    document.getElementsByTagName("li")[0]
+            } else if (dir === "prev") {
+                next = current.previousElementSibling ||
+                    document.querySelector("li:last-child")
+            }
+
+            current.classList.remove("current")
+            next.classList.add("current")
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            new运算符是创建对象时使用的运算符
+                -使用new时：
+        */
+        function Myclass(){
+
+            // var newInstance = {}   //第一步
+            // newInstance.__proto__ = Myclass.prototype   //第二步           
+            //第三步  将新创建的对象作为this的上下文
+            //第四步   如果函数没有返回值，则返回this
+        }
+
+        var mc = new Myclass()
+        console.log(mc);
+
+
+        class Person{
+
+            constructor(){
+
+            }
+        }
+        new Person()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

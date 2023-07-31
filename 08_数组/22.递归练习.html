@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            一对兔子出生后的两个月后每个月能生一对兔子
+                编写计算第n个月的兔子数量
+
+            规律：当前数等于前两个数之和（斐波那契数列）
+        */
+        function fn(num) {
+            if (num === 1 || num === 2) {
+                return 1
+            }
+            return fn(num - 2) + fn(num - 1)
+        }
+
+        let result = fn(10)
+
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

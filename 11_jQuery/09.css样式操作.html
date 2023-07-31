@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.js"></script>
+</head>
+<style>
+    #box1{
+        width: 200px;
+        height: 200px;
+        background-color: #bfa;
+    }
+</style>
+<script>
+    $(function(){
+        $("#btn").click(function(){
+            /* 
+                css  用来读取或设置元素的样式
+            */
+            var $width = $("#box1").css("width")
+            // $("#box1").css("width","300px")
+
+            // $("#box1").css({width:300,height:500,backgroundColor:"orange"})
+
+            alert($("#box1").innerHeight())
+        })
+
+        $("#btn2").click(function(){
+
+        })
+
+        $("#btn3").click(function(){
+
+        })
+    })
+</script>
+
+<body>
+    <button id="btn">点我</button>
+    <button id="btn2">点我2</button>
+    <hr>
+    <div id="box1"></div>
+    <button id="btn3">点我3</button>
+</body>
+
+</html>

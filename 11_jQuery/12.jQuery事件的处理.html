@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.js"></script>
+    <style>
+        .box1 {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            margin: 10px;
+            border: 1px red solid;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn01"> 1点我</button>
+    <button id="btn02"> 2点我</button>
+    <button id="btn03"> 3点我</button>
+    <a href="#">超链接</a>
+
+    <hr>
+
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <script>
+        $(function () {
+            // 通过指定方法为jQuery对象绑定事件
+            $("#btn01").click(function () {
+            })
+
+            $("a").click(function () {
+                // alert(123)
+
+                // 在jQuery的事件响应函数中，同样有事件对象，但是这个对象是经过jQuery包装过的新的对象
+                // 包装该对象是为了解决兼容性的问题
+                alert(event)
+                event.preventDefault()
+                // 在jQuery的事件回调函数中，可以通过return false来取消默认行为和冒泡
+                // return false
+            })
+
+            // 也可以通过on()方法绑定事件
+            $("#btn01").on("click.a", function () {
+                alert("123-1")
+            })
+            $("#btn01").on("click.b", function () {
+                alert("123-2")
+            })
+            $("#btn01").on("click.c", function () {
+                alert("123-3")
+            })
+
+            // off()可以取消事件的绑定
+            // 取消某一个特定的事件
+            $("#btn02").on("click", function () {
+                $("#btn01").off("click.b")
+            })
+
+            $("#btn03").on("click",function(){
+                $(document.body).append("<div class='box1'></div>")
+            })
+
+            // $(".box1").on("click", function () {
+            //     alert("haha")
+            // })
+
+            // $(document).on("click",".box1",function(event){
+            //     alert("haha")
+            // })
+
+            // one()  用来绑定一个一次性的事件
+            $(".box1").one("click",function(){
+                alert(123)
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            解构赋值
+        */
+
+        const arr = ["孙悟空", "猪八戒", "沙和尚"]
+
+        let a, b, c
+
+            // a = arr[0]
+            // b = arr[1]
+            // c = arr[2]
+
+            // [a, b, c] = ["孙悟空", "猪八戒", "沙和尚"]
+        ;[a, b, c] = arr  // 解构赋值
+
+        let [d, e, f, g] = ["唐僧", "白骨精", "蜘蛛精", "玉兔精"] //声明同时解构
+
+            // console.log(a, b, c)
+            // console.log(d, e, f, g)
+
+        ;[d, e, f, g = g] = [1, 2, 3]  // 没赋值就使用默认值
+
+        // console.log(d, e, f, g);  // g为undefined
+
+        let [n1, n2, ...n3] = [4, 5, 6, 7]  //多余的不管
+        // 可以使用...来获取多余的元素
+
+        // console.log(n1,n2,n3);
+
+        // 可以通过解构赋值快速交换两个变量的值
+        let a1 = 10
+        let a2 = 20
+
+            // let temp = a1
+            // a1 = a2
+            // a2 = temp   //初始方法
+
+        ;[a1, a2] = [a2, a1]
+
+        // console.log("a1=", a1);
+        // console.log("a2=", a2);
+
+        const arr2 = ["孙悟空", "猪八戒"]
+        // console.log(arr2);
+
+        ;[arr2[0], arr2[1]] = [arr2[1], arr2[0]]
+        // console.log(arr2);
+
+        /* 
+            数组中可以存储任意类型的数据，也可以存储数组
+                数组中还是数组，则称为二维数组
+        */
+        
+        // const arr3 = [[1,2,3],[3,4,5]]
+        // console.log(arr3[0]);
+        // console.log(arr3[0][1]);
+
+        const arr3= [["孙悟空",18,"男"],["猪八戒",18,"男"]]
+
+        let [[name,age,gender],obj] = arr3
+
+        console.log(name,age,gender);
+        console.log(obj);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

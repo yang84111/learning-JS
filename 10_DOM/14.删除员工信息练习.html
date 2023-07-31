@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 400px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        table {
+            width: 400px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        td,
+        th {
+            border: 1px black solid;
+            padding: 10px 0;
+        }
+
+        form div {
+            margin: 10px 0;
+        }
+    </style>
+
+    <script>
+        // window.addEventListener("load", function () {
+        document.addEventListener("DOMContentLoaded", function () {
+            // const links = document.getElementsByTagName("a")
+            const links = document.links
+            function delHander() {
+                // alert(123)
+                /* 跳转行为是超链接的默认行为，只要点击就会引发页面的跳转
+                    事件中可以通过取消默认行为来阻止超链接的跳转 */
+                // 使用return false 来取消默认行为只在xxx.xxx=function(){}这种形式绑定的事件中才适用
+                // return false
+
+                //删除当前员工信息，删除当前超链接所在tr
+                // console.log(this);
+                //this表示当前点击的超链接
+                const tr = this.parentNode.parentNode
+
+                const name = tr.getElementsByTagName("td")[0].textContent
+                // const name = tr.firstElementChild.textContent
+                // const name = tr.getElementsByTagName("td")[0]
+                console.log(name.textContent)
+                //弹出提示
+                if (confirm("确定删除【"+ name +"】吗？")) {
+                // if (confirm(`确定删除${name.textContent}吗？`)) {
+                    tr.remove()
+                }
+
+            }
+
+            for (let i = 0; i < links.length; i++) {
+                links[i].onclick = delHander
+
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <table>
+            <tbody>
+                <tr>
+                    <th>姓名</th>
+                    <th>邮件</th>
+                    <th>薪资</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>孙悟空</td>
+                    <td>swk@hgs.com</td>
+                    <td>10000</td>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+                <tr>
+                    <td>猪八戒</td>
+                    <td>zbj@glz.com</td>
+                    <td>8000</td>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+                <tr>
+                    <td>沙和尚</td>
+                    <td>shs@lsh.com</td>
+                    <td>6000</td>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form action="#">
+            <div>
+                <label for="name">姓名</label>
+                <input type="text" id="name" />
+            </div>
+            <div>
+                <label for="email">邮件</label>
+                <input type="email" id="email" />
+            </div>
+            <div>
+                <label for="salary">薪资</label>
+                <input type="number" id="salary" />
+            </div>
+            <button>添加</button>
+        </form>
+    </div>
+</body>
+
+</html>

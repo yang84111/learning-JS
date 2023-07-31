@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 求一千以内的水仙花数
+            水仙花数：一个n位数（n>=3）如果它各个位上数字的n次幂之和还等于这个数
+                        那么这个数就是水仙花数 
+        */
+
+        // for(n=100 ; n<1000 ; n++){
+        //     if((n%10)**3 + parseInt((n%100)/10)**3 + parseInt((n%1000)/100)**3 ===n){
+        //         console.log(n);
+        //     }
+        // }
+
+        for (let i = 100; i < 1000; i++) {
+            // let n = i + ""
+            n = String(i)
+            if (n[0] ** 3 + n[1] ** 3 + n[2] ** 3 === i) {
+                console.log(n);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .outer {
+            width: 590px;
+            height: 470px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .img-list li {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        li.current {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        #prev-next a {
+            font-size: 60px;
+            height: 60px;
+            color: red;
+            font-weight: bold;
+            text-decoration: none;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            color: white;
+            opacity: .5;
+        }
+
+        #next {
+            right: 0;
+        }
+
+        #prev-next a:hover {
+            opacity: 1;
+        }
+
+        .dot {
+            position: absolute;
+            z-index: 3;
+            display: flex;
+            margin: auto;
+            top: 440px;
+            left: 480px;
+        }
+
+        .dot a {
+            /* float: left; */
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 0 5px;
+            opacity: .5;
+        }
+
+        .dot a:hover,
+        .dot .active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <ul class="img-list">
+            <li class="current">
+                <a href="#">
+                    <img src="./images/q1.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/q2.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/q3.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/q4.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/q5.jpg">
+                </a>
+            </li>
+        </ul>
+        <div id="prev-next">
+            <a href="javascript:;" id="prev">
+                < </a>
+                    <a href="javascript:;" id="next"> > </a>
+        </div>
+        <div class="dot">
+            <a class="active" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+
+    <script>
+        const dots = [...document.querySelectorAll(".dot a")]
+        const imgArr = [...document.querySelectorAll(".img-list li")]
+
+
+        document.addEventListener('click', (event) => {
+            const index = dots.indexOf(event.target)
+            if (index !== -1) {
+                changeImg(index)
+
+                // const currentActive = document.querySelector(".active")
+                // currentActive.classList.remove("active")
+                // event.target.classList.add("active")
+            }
+        })
+
+        const toggleChange = (function () {
+            let timer = null
+            return () => {
+                if (timer == null) {
+                    timer = setTimeout(function auto() {
+                        changeImg("next")
+                        timer = setTimeout(auto, 3000)
+                    }, 3000)
+                } else {
+                    clearTimeout(timer)
+                    timer = null
+                }
+            }
+        })()
+
+        toggleChange()
+
+        const outer = document.getElementsByClassName("outer")[0]
+
+        outer.onmouseenter = function () {
+            toggleChange()
+        }
+        outer.onmouseleave = function () {
+            toggleChange()
+        }
+
+        const prev = document.getElementById("prev")
+        const next = document.getElementById("next")
+
+        next.onclick = function () {
+            changeImg("next")
+        }
+
+        prev.onclick = function () {
+            changeImg("prev")
+        }
+
+        function changeImg(dir) {
+            const current = document.querySelector(".img-list .current")
+
+            let next
+            // const current = document.getElementsByClassName("current")[0]
+            if (dir === "next") {
+                next = current.nextElementSibling || imgArr[0]
+            } else if (dir === "prev") {
+                next = current.previousElementSibling || imgArr.at(-1)
+            } else {
+                next = imgArr[dir]
+            }
+            current.classList.remove("current")
+            next.classList.add("current")
+
+            const index = imgArr.indexOf(next)
+            const currentActive = document.querySelector(".active")
+            currentActive.classList.remove("active")
+            dots[index].classList.add("active")
+        }
+    </script>
+</body>
+
+</html>

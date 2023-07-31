@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            垃圾回收(Garbage Collection)
+                -程序运行一段时间后会产生垃圾
+                -在程序中
+                    如果一个对象没有任何的变量对其进行引用，那么这个对象就是垃圾
+                    垃圾对象的存在会严重影响程序的性能
+                    在JS中有自动的垃圾回收机制，这些垃圾对象会被解释器自动回收
+                    我们可以将不再使用的变量设置为null，解释器会进行自动回收
+        */
+
+        let obj = { name: "孙悟空" }
+        obj = null
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

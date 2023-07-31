@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let H = +prompt('请输入你的身高')
+        let W = +prompt('请输入你的财富')
+        let S = +prompt('请输入你的帅')
+        if (isNaN(H) || isNaN(W) || isNaN(S)) {
+            alert('请输入正确的身高财富颜值')
+        } else {
+            if (H > 180 && W > 1000 && S > 500) {
+                alert('我一定要嫁给他')
+            } else if (H > 180 || W > 1000 || S > 500) {
+                alert('嫁吧，比上不足比下有余')
+            } else {
+                alert('不嫁')
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

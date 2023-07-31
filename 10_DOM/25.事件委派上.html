@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <hr>
+    <ul id="list">
+        <li><a href="javascript:;">链接1</a></li>
+        <li><a href="javascript:;">链接2</a></li>
+        <li><a href="javascript:;">链接3</a></li>
+        <li><a href="javascript:;">链接4</a></li>
+    </ul>
+
+    <script>
+        const links = document.querySelectorAll("ul a")
+        const list = document.getElementById("list")
+        const btn = document.getElementById("btn")
+
+        document.addEventListener("click", event => {
+            alert(event.target.textContent)
+        })
+
+        // for (let i = 0; i < links.length; i++) {
+        //     links[i].addEventListener("click",event=>{
+        //         alert(event.target.textContent)
+        //     })
+        // }
+
+        // 点击按钮，在ul中添加一个新的li
+        btn.addEventListener("click", event => {
+            list.insertAdjacentHTML("beforeend", "<li><a href='javascript:;'>超链接</a></li>")
+        })
+    </script>
+</body>
+
+</html>
